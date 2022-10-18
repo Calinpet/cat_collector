@@ -18,7 +18,12 @@ def cats_index(request):
 # The cats_detail function is using the getmethod to obtain the cat object by its id.
 def cats_detail(request, cat_id):
   cat = Cat.objects.get(id=cat_id)
-  return render(request, 'cats/detail.html', { 'cat': cat })
+  # instantiate FeedingForm to be rendered in the template
+  feeding_form = FeedingForm()
+  return render(request, 'cats/detail.html', {
+    # include the cat and feeding_form in the context
+    'cat': cat, 'feeding_form': feeding_form
+  })
 
 # The fieldsattribute is required and can be used to limit or change the ordering of the attributes from the Catmodel are generated in the ModelFormpassed to the template.
 class CatCreate(CreateView):
