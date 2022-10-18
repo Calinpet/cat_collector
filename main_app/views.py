@@ -27,8 +27,8 @@ class CatCreate(CreateView):
   success_url = '/cats/'
 
 class CatUpdate(UpdateView):
-  models = Cat
-  #  Let's disallow the renaming of a cat by excluding the name filed!
+  model = Cat
+  # Let's disallow the renaming of a cat by excluding the name field!
   fields = ['breed', 'description', 'age']
 
 class CatDelete(DeleteView):
