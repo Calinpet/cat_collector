@@ -2,6 +2,8 @@ from django.shortcuts import render
 # Add the following import
 from django.views.generic.edit import CreateView
 from .models import Cat
+# Import the FeedingForm
+from .forms import FeedingForm
 # Add UdpateView & DeleteView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
