@@ -2,6 +2,8 @@ from django.shortcuts import render
 # Add the following import
 from django.views.generic.edit import CreateView
 from .models import Cat
+# Add UdpateView & DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Define the home view
 def home(request):
@@ -22,4 +24,13 @@ def cats_detail(request, cat_id):
 class CatCreate(CreateView):
   model = Cat
   fields = '__all__'  
+  success_url = '/cats/'
+
+class CatUpdate(UpdateView):
+  models = Cat
+  #  Let's disallow the renaming of a cat by excluding the name filed!
+  fields = ['breed', 'description', 'age']
+
+class CatDelete(DeleteView):
+  model = Cat
   success_url = '/cats/'
