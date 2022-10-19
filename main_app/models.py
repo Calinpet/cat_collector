@@ -18,7 +18,7 @@ class Cat(models.Model):
 
 # new code below
   def __str__(self):
-      return self.name    
+    return self.name    
 
 # Add this method
   def get_absolute_url(self):
